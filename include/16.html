@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+  <head>
+    <title>Canlı TV</title> 
+    <link rel = "icon" href = "./image/tv.svg" type = "image/x-icon">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Goldman|Bruno Ace">
+    <link rel="stylesheet" href="./tv.css" />
+    
+  </head>
+  <body>
+    <header>
+      <h2>Multi TV</h2>
+    </header>
+    <nav>
+      <ul>
+        <li><a class="12" href="./12.html">12 Ekran</a></li>
+        <li><a class="16" href="./16.html">16 Ekran</a></li>
+        <li><a class="18" href="./18.html">18 Ekran</a></li>
+      </ul>
+    </nav>
+    <main>
+      <div class="video-grid">
+        <script>
+          // Replace the video IDs with the IDs of the YouTube livestreams you want to display
+          var videoIds = ['SqHIO2zhxbA', 'XEJM4Hcgd3M', 'UVPejgEw21c', '-Lrxv1_i3qc', 'sd94keSra6A', 'r2ZgRoX2orE', 'gNV8SIq_Xjw', 'QAciOwhQMeo', '2i8lfP9oqvk', 'khg-UfGaE-I', '3QDiWPZ2D_k', 'UVW4-DQUVUU', 'z9ZhgZGxqM8', 'hHSmBJk6w0c', 'Q4cvrh3jCZU', 'X_EWYemclKA'];
+
+          // This function creates an iFrame for each video ID and adds it to the page
+          function createPlayer(videoId) {
+            var playerDiv = document.createElement('div');
+            playerDiv.id = 'player-' + videoId;
+            playerDiv.classList.add('video-item');
+            document.querySelector('.video-grid').appendChild(playerDiv);
+            
+            var player = new YT.Player('player-' + videoId, {
+              height: '225',
+              width: '400',
+              videoId: videoId,
+              events: {
+                'onReady': onPlayerReady,
+                
+              }
+            });
+          }
+
+          // This function is called when each player is ready to start playing
+          function onPlayerReady(event) {
+            event.target.playVideo();
+          }
+
+          // Load the YouTube iFrame API and create a player for each video ID
+          function loadPlayer() {
+            var tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            
+            window.onYouTubeIframeAPIReady = function() {
+              for (var i = 0; i < videoIds.length; i++) {
+                createPlayer(videoIds[i]);
+              }
+            }
+          }
+
+          loadPlayer();
+        </script>
+      </div>
+    </main>
+    <footer>
+      <h3>Made by Fumea | Umut Aytuğ Semerci</h3>
+    </footer>
+  </body>
+</html>
