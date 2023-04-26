@@ -4,9 +4,9 @@ This is a Multiple TV watching website created by Umut Aytuğ Semerci.
 
 ## Table of Contents
 
-- [12 Ekran](#12 Screen)
-- [16 Ekran](#16 Screen)
-- [18 Ekran](#18 Screen)
+- [12 Ekran]
+- [16 Ekran]
+- [18 Ekran]
 
 ## 12 Screen
 
